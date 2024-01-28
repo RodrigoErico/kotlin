@@ -1,13 +1,15 @@
 package functions
 
 fun main() {
-    println(averageGrade(9f, 10f, 3f, 4.5f, 7.8f))
+    println(averageGrade("Rodrigo",9f, 566, true, 10f, 3f, "Melancia", 4.5f, 7.8f))
 }
 
-fun averageGrade(vararg grades: Float): Float {
+fun <K, T>averageGrade(name: K, vararg grades: T): Float {
     var sum = 0f
     for (n in grades) {
-        sum += n
+        if (n is Float) {
+            sum += n
+        }
     }
     return (sum / grades.size)
 }
